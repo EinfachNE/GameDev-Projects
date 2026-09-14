@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0345119b8a0340047a2d1f1f5205ceda, type: 3}
+  m_Name: HousePlotStaticData
+  m_EditorClassIdentifier: Assembly-CSharp::PlotStaticData
+  type: 2
+  prefab: {fileID: 5404557786083484688, guid: 7f234b41b911270499a97a548febb954, type: 3}
+  panel: {fileID: 4558053459712767425, guid: 2354768664cdcb64197571802449716e, type: 3}
+  isPurchasable: 1
+  baseValue: 10000
+  isRentable: 1

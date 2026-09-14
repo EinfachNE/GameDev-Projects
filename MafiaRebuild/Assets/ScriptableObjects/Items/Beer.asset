@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91eba3e0de21bf443bcf0547777cb312, type: 3}
+  m_Name: Beer
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDefinition
+  id: alcohol_beer
+  DisplayName: Beer
+  icon: {fileID: -1053047714, guid: 4b985d005f2a80443b627c0f7ac8a423, type: 3}
+  basePrice: 2
+  category: 0
