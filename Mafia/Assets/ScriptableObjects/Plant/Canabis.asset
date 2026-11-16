@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81814638f0405b844809b7229d7967af, type: 3}
+  m_Name: Canabis
+  m_EditorClassIdentifier: Assembly-CSharp::PlantDefinition
+  displayName: Canabis
+  item: {fileID: 11400000, guid: fd16562850f918949abbb5d68fa84636, type: 2}
+  seed: {fileID: 11400000, guid: 229bb526b230fe54383fe33da5e1949d, type: 2}
+  seedHarvestAmount: 1
+  baseTimeToGrow: 1440
+  baseYield: 1
