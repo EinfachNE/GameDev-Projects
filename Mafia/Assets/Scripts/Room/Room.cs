@@ -28,9 +28,13 @@ public class Room : MonoBehaviour
 
     public int GetCurrentCapacity() { return currentCapacity; }
     public int GetMaxCapacity() { return maxCapacity; }
+    public bool HasSpace(Placable placable)
+    {
+        return currentCapacity + placable.GetCapacityCost() <= maxCapacity;
+    }
     public bool AddPlacable(Placable placable)
     {
-        if (currentCapacity + placable.GetCapacityCost() <= maxCapacity)
+        if (HasSpace(placable))
         {
             placables.Add(placable);
             currentCapacity += placable.GetCapacityCost();
