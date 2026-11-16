@@ -22,9 +22,18 @@ public class AvailablePlacablesEntryUI : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (playerInventory.RemoveItem(placable.GetItem(), 1)){
-            uIManager.GetLastReferencedRoom().AddPlacable(placable);
-            OnPlacableAdded?.Invoke();
+        Room room = uIManager.GetLastReferencedRoom();
+
+        if (room.HasSpace(placable) && playerInventory.RemoveItem(placable.GetItem(), 1))
+        {
+            if (room.AddPlacable(placable))
+            {
+                OnPlacableAdded?.Invoke();
+            }
+            else
+            {
+                playerInventory.AddItem(placable.GetItem(), 1);
+            }
         }
     }
 }
