@@ -59,5 +59,6 @@ public class MeetingLocationUI : MonoBehaviour
         {
             Destroy(meetingEntrys[i]);
         }
+        meetingEntrys.Clear();
     }
 }

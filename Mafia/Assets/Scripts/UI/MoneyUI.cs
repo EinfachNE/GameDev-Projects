@@ -10,10 +10,20 @@ public class MoneyUI : MonoBehaviour
     {
         playerMoney = Player.Instance.GetComponent<MoneyContainer>();
         playerMoney.TriggerMoneyChanged += UpdateUI;
+        UpdateUI();
+    }
+    private void OnEnable()
+    {
+        if (playerMoney != null)
+        {
+            playerMoney.TriggerMoneyChanged += UpdateUI;
+            UpdateUI();
+        }
     }
     private void OnDisable()
     {
-        playerMoney.TriggerMoneyChanged -= UpdateUI;
+        if (playerMoney != null)
+            playerMoney.TriggerMoneyChanged -= UpdateUI;
     }
 
     public void UpdateUI()

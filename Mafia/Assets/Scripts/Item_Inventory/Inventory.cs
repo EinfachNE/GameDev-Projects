@@ -77,36 +77,40 @@ public class Inventory : MonoBehaviour
     }
     public bool HasSpace(List<ItemDefinition> item, List<int> amount)
     {
-        List<int> occupied = new List<int>();
-        int space = 0;
-        for(int j = 0; j < item.Count; j++)
+        if (item == null || amount == null || item.Count != amount.Count)
+            return false;
+
+        Dictionary<ItemDefinition, int> required = new Dictionary<ItemDefinition, int>();
+        for (int i = 0; i < item.Count; i++)
         {
-            for (int i = 0; i < inventory.Length; i++)
+            if (item[i] == null || amount[i] < 0 || item[i].GetMaxStackSize() <= 0)
+                return false;
+
+            required.TryGetValue(item[i], out int previousAmount);
+            required[item[i]] = previousAmount + amount[i];
+        }
+
+        int emptySlots = 0;
+        foreach (ItemStack stack in inventory)
+        {
+            if (stack == null)
+                emptySlots++;
+        }
+
+        foreach (var request in required)
+        {
+            int remaining = request.Value;
+            foreach (ItemStack stack in inventory)
             {
-                if (inventory[i]?.GetItemDefinition() == item[j])
-                {
-                    space += item[j].GetMaxStackSize() - inventory[i].GetAmount();
-                }
-                if (space >= amount[j])
-                {
-                    break;
-                }
+                if (stack != null && stack.GetItemDefinition() == request.Key)
+                    remaining -= Mathf.Max(0, request.Key.GetMaxStackSize() - stack.GetAmount());
             }
-            if (space < amount[j])
-            {
-                for (int i = 0; i < inventory.Length; i++)
-                {
-                    if (inventory[i] == null)
-                    {
-                        occupied.Add(i);
-                        space += item[j].GetMaxStackSize();
-                    }
-                }
-                if (space < amount[j])
-                {
-                    return false;
-                }
-            }
+
+            if (remaining > 0)
+                emptySlots -= (remaining - 1) / request.Key.GetMaxStackSize() + 1;
+
+            if (emptySlots < 0)
+                return false;
         }
         return true;
     }
