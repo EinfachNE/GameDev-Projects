@@ -40,5 +40,6 @@ public class ShopPanel : MonoBehaviour
         {
             Destroy(offerEntrys[i]);
         }
+        offerEntrys.Clear();
     }
 }
