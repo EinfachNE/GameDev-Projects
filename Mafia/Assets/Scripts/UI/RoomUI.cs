@@ -31,7 +31,9 @@ public class RoomUI : MonoBehaviour
     {
         if (currentRoom.GetCurrentCapacity() < currentRoom.GetMaxCapacity())
         {
-            entrys.Add(Instantiate(chooseNewEntrysUI, placableEntryParent));
+            GameObject entry = Instantiate(chooseNewEntrysUI, placableEntryParent);
+            entry.GetComponent<ChooseNewPlacableEntryUI>().Setup(currentRoom);
+            entrys.Add(entry);
         }
         List<Placable> placables = currentRoom.GetPlacables();
         for (int i = 0; i < placables.Count; i++)
