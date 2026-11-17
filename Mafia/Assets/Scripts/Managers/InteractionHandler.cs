@@ -41,7 +41,7 @@ public class InteractionHandler : MonoBehaviour
     public Vector2 GetMouseToWorldPosition()
     {
         Vector2 mousePos = Pointer.current.position.ReadValue();
-        Vector2Int worldPos = Vector2Int.RoundToInt(cam.ScreenToWorldPoint(mousePos));
+        Vector2 worldPos = cam.ScreenToWorldPoint(mousePos);
         return worldPos;
     }
     public void Interact(Plot plot)
