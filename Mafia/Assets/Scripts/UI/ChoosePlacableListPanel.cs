@@ -12,7 +12,7 @@ public class ChoosePlacableListPanel : MonoBehaviour
     private List<GameObject> availableEntries = new List<GameObject>();
     private UIManager uIManager;
     private Inventory playerInventory;
-    public void OpenUI()
+    public void OpenUI(Room room)
     {
         RemoveEntrys();
         for (int i = 0; i < playerInventory.GetLength(); i++)
@@ -21,7 +21,7 @@ public class ChoosePlacableListPanel : MonoBehaviour
             if (item != null)
             {
                 GameObject newEntry = Instantiate(availableEntrysUI, availableEntrysParent);
-                newEntry.GetComponent<AvailablePlacablesEntryUI>().Setup(CreatePlacableFromItem(item));
+                newEntry.GetComponent<AvailablePlacablesEntryUI>().Setup(CreatePlacableFromItem(item), room);
                 newEntry.GetComponent<AvailablePlacablesEntryUI>().OnPlacableAdded += CloseUI;
                 availableEntries.Add(newEntry);
             }
