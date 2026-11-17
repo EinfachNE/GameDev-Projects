@@ -6,11 +6,19 @@ public class MoneyUI : MonoBehaviour
 {
     private MoneyContainer playerMoney;
     [SerializeField] private TextMeshProUGUI cashText;
-    private void OnEnable()
+    private void Start()
     {
         playerMoney = Player.Instance.GetComponent<MoneyContainer>();
         playerMoney.TriggerMoneyChanged += UpdateUI;
         UpdateUI();
+    }
+    private void OnEnable()
+    {
+        if (playerMoney != null)
+        {
+            playerMoney.TriggerMoneyChanged += UpdateUI;
+            UpdateUI();
+        }
     }
     private void OnDisable()
     {
