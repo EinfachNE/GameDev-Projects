@@ -119,10 +119,10 @@ public class UIManager : MonoBehaviour
         }
         ClosePersistentUI();
     }
-    public void OpenChoosePlacableListUI()
+    public void OpenChoosePlacableListUI(Room room)
     {
         choosePlacableListPanel.SetActive(true);
-        choosePlacableListPanel.GetComponent<ChoosePlacableListPanel>().OpenUI();
+        choosePlacableListPanel.GetComponent<ChoosePlacableListPanel>().OpenUI(room);
     }
     public void CloseUI(GameObject selectedPanel)
     {
