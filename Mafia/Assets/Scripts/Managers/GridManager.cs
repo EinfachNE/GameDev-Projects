@@ -57,8 +57,8 @@ public class GridManager : MonoBehaviour
     public Plot GetPlotFromWorldPos(Vector2 worldPos)
     {
 
-        int x = (int)(worldPos.x - originPosition.x);
-        int y = (int)(worldPos.y - originPosition.y);
+        int x = Mathf.RoundToInt((worldPos.x - originPosition.x) / tileSize);
+        int y = Mathf.RoundToInt((worldPos.y - originPosition.y) / tileSize);
         if (x >= 0 && x < width && y >= 0 && y < height)
         {
             return grid[x, y];
